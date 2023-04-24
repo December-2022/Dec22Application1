@@ -23,4 +23,17 @@ public class CalculatorController {
 
         return  a-b;
     }
+
+    @GetMapping("/operation/{a}/{b}/{action}")
+    public int operation(@PathVariable int a, @PathVariable int b,
+                         @PathVariable String action){
+
+        if(action.equalsIgnoreCase("add")){
+            return a+b;
+        }
+        else if (action.equalsIgnoreCase("subtract")){
+            return a-b;
+        }
+        return 0;
+    }
 }
